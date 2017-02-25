@@ -1,12 +1,7 @@
 ;; 主题
-;(use-package spacemacs-theme
-;  :ensure t
-;  :config (load-theme 'spacemacs-dark t)
-;  )
-
-(use-package monokai-theme
+(use-package material-theme
   :ensure t
-  :config (load-theme 'monokai t)
+  :config (load-theme 'material t)
   )
 
 ;; 扩展M-x功能
@@ -55,6 +50,13 @@
   :ensure t
   :config (require 'gist)
   )
+
+;; 彩虹括号
+(use-package rainbow-delimiters
+  :ensure t
+  :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+  )
+
 
 (provide 'init-custom-pkg)
 
