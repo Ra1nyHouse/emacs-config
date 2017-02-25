@@ -57,6 +57,20 @@
   :config (add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
   )
 
+;; markdown
+(use-package markdown-mode
+  :ensure t
+  :commands (markdown-mode gfm-mode)
+  :mode (("README\\.md\\'" . gfm-mode)
+         ("\\.md\\'" . markdown-mode)
+         ("\\.markdown\\'" . markdown-mode))
+  :init (setq markdown-command "multimarkdown"))
+
+;; 使用github api生成html，如果本地没装multimarkdown可以使用
+;; (use-package gh-md
+;;   :ensure t
+;;   :commands (gh-md-render-region gh-md-render-buffer)
+;;   )
 
 (provide 'init-custom-pkg)
 
