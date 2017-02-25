@@ -1,7 +1,12 @@
 ;; 主题
-(use-package spacemacs-theme
+;(use-package spacemacs-theme
+;  :ensure t
+;  :config (load-theme 'spacemacs-dark t)
+;  )
+
+(use-package monokai-theme
   :ensure t
-  :config (load-theme 'spacemacs-dark t)
+  :config (load-theme 'monokai t)
   )
 
 ;; 扩展M-x功能
