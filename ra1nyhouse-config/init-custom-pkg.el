@@ -72,6 +72,14 @@
 ;;   :commands (gh-md-render-region gh-md-render-buffer)
 ;;   )
 
+;; 多行编辑
+(use-package multiple-cursors
+  :ensure t
+  :bind (([f1] . mc/mark-next-like-this)
+	 ("C-<" . mc/mark-previous-like-this))
+  )
+
+
 (provide 'init-custom-pkg)
 
 
