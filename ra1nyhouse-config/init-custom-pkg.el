@@ -79,6 +79,12 @@
 	 ("C-<" . mc/mark-previous-like-this))
   )
 
+;; 自动补全
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  )
 
 (provide 'init-custom-pkg)
 
