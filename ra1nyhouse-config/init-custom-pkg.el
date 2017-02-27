@@ -58,6 +58,7 @@
   )
 
 ;; markdown
+;; 命令行需要安装Multimarkdown软件,osx: brew install multimarkdown
 (use-package markdown-mode
   :ensure t
   :commands (markdown-mode gfm-mode)
