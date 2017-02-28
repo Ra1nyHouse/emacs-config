@@ -10,6 +10,6 @@ windows`.emacs.d`文件通常在C:\Users\{user}\AppData\Roaming\.emacs.d 中。
 ```shell
 rm -rf *
 git init
-git remote add origin git@github.com:Ra1nyHouse/emacs-config.git
+git remote add origin https://github.com/Ra1nyHouse/emacs-config.git
 git pull origin master
 ```
