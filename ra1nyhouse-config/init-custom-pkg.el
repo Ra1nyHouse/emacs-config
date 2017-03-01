@@ -14,6 +14,11 @@
 ;; python模式
 (use-package elpy
   :ensure t
+  :demand
+  :bind (
+	 :map elpy-mode-map
+	 ("C-c C-k" . elpy-shell-kill)
+	)
   :config (elpy-enable)
   )
 
