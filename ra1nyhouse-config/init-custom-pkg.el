@@ -92,6 +92,16 @@
   (add-hook 'after-init-hook 'global-company-mode)
   )
 
+;; snippet代码片段
+(use-package yasnippet
+  :ensure t
+  :config
+  (require 'yasnippet)
+  (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
+  (yas-global-mode 1)
+ )
+
+
 (provide 'init-custom-pkg)
 
 

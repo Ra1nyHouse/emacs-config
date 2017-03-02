@@ -1,0 +1,10 @@
+# -*- mode: snippet -*-
+# name: 限制keras后端tensorflow使用gpu显存比例
+# key: limitgpu
+# --
+import tensorflow as tf
+from keras.backend.tensorflow_backend import set_session
+#  限制keras后端tensorflow使用gpu显存比例
+config = tf.ConfigProto()
+config.gpu_options.per_process_gpu_memory_fraction = 0.3
+set_session(tf.Session(config=config))
