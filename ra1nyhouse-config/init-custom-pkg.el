@@ -101,6 +101,13 @@
   (yas-global-mode 1)
  )
 
+;; 将烦人的弹出提示框设置成popwin，方便关闭
+(use-package popwin
+  :ensure t
+  :config
+  (require 'popwin)
+  (popwin-mode 1)
+ )
 
 (provide 'init-custom-pkg)
 
