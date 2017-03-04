@@ -1,15 +1,45 @@
 ;; 主题
-(use-package material-theme
-  :ensure t
-  :config (load-theme 'material t)
-  )
+;; (use-package material-theme
+;;   :ensure t
+;;   :config (load-theme 'material t)
+;;   )
 
-;; 扩展M-x功能
+;; 使用默认主题 manoj-dark,对helm支持较好
+(load-theme 'manoj-dark t)
+
+;; 使用helm,扩展M-x功能
 (use-package helm
   :ensure t
-  :bind ("M-x" . helm-M-x)
-  :config (require 'helm-config)
+  :demand
+  :bind (("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-x b" . helm-buffers-list))
+  :config
+  (require 'helm-config)
+  ;; helm-themes不是主题，只是显示当前所有安装主题
+  ;; 如有异常，删除emacs-custom.el文件
+    (use-package helm-themes
+    :ensure t
+    :config (require 'helm-themes)
+    )  
   )
+
+;; ivy划分为ivy,swiper,counsel三个包，counsel依赖前两个
+;; 测试了，功能和helm重复，速度更快，但是没有helm强大
+;; swiper是isearch很好的替代品，推荐使用
+
+;; 使用swiper替换isearch
+;; 设置ivy-mode开启，使用C-x k 时候很方便
+(use-package counsel
+  :ensure t
+  :demand
+  :bind ("C-s" . swiper)
+  :config
+  (ivy-mode 1)
+  (setq ivy-use-virtual-buffers t)
+  (setq enable-recursive-minibuffers t)
+  )
+
 
 ;; python模式
 (use-package elpy
@@ -38,14 +68,6 @@
   :config
     (require 'neotree)
     (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
-  )
-
-;; 提供备选项
-(use-package ido
-  :ensure t
-  :config
-    (require 'ido)
-    (ido-mode t)
   )
 
 ;; 支持gist，需要配置
