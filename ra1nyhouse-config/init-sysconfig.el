@@ -1,8 +1,12 @@
 ;; turn on highlight matching brackets when cursor is on one
 (show-paren-mode 1)
 
-(setq make-backup-files nil) ; stop creating backup~ files
-;; (setq auto-save-default nil) ; stop creating #autosave# files
+;; 当文件修改时，不备份，不产生~文件~
+(setq make-backup-files nil)
+
+;; 自动保存文件，但是直接保持到当前文件，不产生#文件#
+(setq auto-save-default t)
+(setq auto-save-visited-file-name t)
 
 ;; backup in one place. flat, no tree structure
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
