@@ -24,4 +24,7 @@
 ;; 下一个窗口
 (global-set-key (kbd "<f12>") 'other-window) ; 等价于C-x o
 
+;; 使得C-2 等价于 C-@
+(global-set-key (kbd "C-2") 'set-mark-command)
+
 (provide 'init-sysconfig)
