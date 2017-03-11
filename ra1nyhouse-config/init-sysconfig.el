@@ -11,8 +11,14 @@
 ;; backup in one place. flat, no tree structure
 (setq backup-directory-alist '(("" . "~/.emacs.d/emacs-backup")))
 
-;; enable line numbers globally
-(global-linum-mode t)
+;; 显示行号最好不要全局都激活
+;; (global-linum-mode t)
+(add-hook 'emacs-lisp-mode-hook 'linum-mode)
+(add-hook 'js-mode-hook 'linum-mode)
+(add-hook 'css-mode-hook 'linum-mode)
+(add-hook 'html-mode-hook 'linum-mode)
+(add-hook 'nxml-mode-hook 'linum-mode)
+(add-hook 'python-mode-hook 'linum-mode)
 (setq linum-format "%4d| ")
 
 ;; 切换到上一个buffer
