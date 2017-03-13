@@ -131,6 +131,14 @@
   (popwin-mode 1)
  )
 
+;; 自定义模式栏显示内容
+(use-package diminish
+  :ensure t
+  :config
+  (require 'diminish)
+  (diminish 'ivy-mode)
+  )
+
 (provide 'init-custom-pkg)
 
 
