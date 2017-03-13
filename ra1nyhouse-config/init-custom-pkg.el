@@ -139,6 +139,15 @@
   (diminish 'ivy-mode)
   )
 
+;; 必应字典支持
+(use-package bing-dict
+  :ensure t
+  :bind (("C-c d" . bing-dict-brief))
+  :config
+  (require 'bing-dict)
+  )
+
+
 (provide 'init-custom-pkg)
 
 
