@@ -13,3 +13,8 @@ git init
 git remote add origin https://github.com/Ra1nyHouse/emacs-config.git
 git pull origin master
 ```
+设置push上游
+
+```shell
+git push --set-upstream origin master
+```
