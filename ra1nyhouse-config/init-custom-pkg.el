@@ -149,6 +149,14 @@
   (require 'bing-dict)
   )
 
+;; undotree
+(use-package undo-tree
+  :ensure t
+  :demand
+  :config
+  (require 'undo-tree)
+  (global-undo-tree-mode)
+  )
 
 (provide 'init-custom-pkg)
 
