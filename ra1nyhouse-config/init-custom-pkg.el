@@ -123,12 +123,14 @@
   (yas-global-mode 1)
  )
 
-;; 将烦人的弹出提示框设置成popwin，方便关闭
+;; 将烦人的弹出提示框设置成popwin，使用C-g关闭
 (use-package popwin
   :ensure t
   :config
   (require 'popwin)
   (popwin-mode 1)
+  (push "*Warnings*" popwin:special-display-config)
+  (push "*Flycheck error messages*" popwin:special-display-config)
  )
 
 ;; 自定义模式栏显示内容
