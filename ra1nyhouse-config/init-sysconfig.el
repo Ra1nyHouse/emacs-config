@@ -33,7 +33,9 @@
 ;; 使得C-2 等价于 C-@
 (global-set-key (kbd "C-2") 'set-mark-command)
 
-;; 放大窗口, C-x + 恢复
+;; 放大窗口纵向, C-x + 恢复
 (global-set-key (kbd "<f5>") 'enlarge-window)
+;; 放大窗口横向
+(global-set-key (kbd "<f6>") 'enlarge-window-horizontally)
 
 (provide 'init-sysconfig)
