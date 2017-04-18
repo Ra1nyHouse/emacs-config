@@ -149,15 +149,19 @@
   (require 'bing-dict)
   )
 
-;; undotree
-(use-package undo-tree
-  :ensure t
-  :demand
-  :config
-  (require 'undo-tree)
-  (global-undo-tree-mode)
-  )
+;; undotree 不好用，从粘贴板复制大数据时因为创建树结构会卡顿
+;; (use-package undo-tree
+;;   :ensure t
+;;   :demand
+;;   :config
+;;   (require 'undo-tree)
+;;   (global-undo-tree-mode)
+;;   )
 
+(use-package ace-window
+  :ensure t
+  :bind (("M-p" . ace-window))
+  )
 (provide 'init-custom-pkg)
 
 
