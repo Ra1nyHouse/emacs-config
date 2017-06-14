@@ -38,4 +38,7 @@
 ;; 放大窗口横向
 (global-set-key (kbd "<f6>") 'enlarge-window-horizontally)
 
+;; 激活linux x11 剪切板
+(setq x-select-enable-clipboard t)
+
 (provide 'init-sysconfig)

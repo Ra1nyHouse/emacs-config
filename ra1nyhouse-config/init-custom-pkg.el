@@ -167,6 +167,58 @@
   :ensure t
   )
 
+;; 实现与系统剪切板互通，需要安装xsel软件，目前在linux下可用
+;; If emacs is run in a terminal, the clipboard- functions have no
+;; effect. Instead, we use of xsel, see
+;; http://www.vergenet.net/~conrad/software/xsel/ -- "a command-line
+;; program for getting and setting the contents of the X selection"
+(unless window-system
+  (when (getenv "DISPLAY")
+    ;; 获取平台名字"Linux" or "Darwin"
+    (defvar my-platform (shell-command-to-string "uname"))
+    ;; Callback for when user cuts
+    (defun xsel-cut-function (text &optional push)
+      ;; Insert text to temp-buffer, and "send" content to xsel stdin
+      (with-temp-buffer
+	(insert text)
+	;; I prefer using the "clipboard" selection (the one the
+	;; typically is used by c-c/c-v) before the primary selection
+	;; (that uses mouse-select/middle-button-click)
+	(if (equal my-platform "Linux\n")
+	    ;; linux 平台
+	    (call-process-region (point-min) (point-max) "xsel" nil 0 nil "--clipboard" "--input")
+	    ;; mac平台
+	    (call-process-region (point-min) (point-max) "pbcopy" nil 0 nil "")
+	  )
+       ))
+      
+    ;; Call back for when user pastes
+    (defun xsel-paste-function()
+      ;; Find out what is current selection by xsel. If it is different
+      ;; from the top of the kill-ring (car kill-ring), then return
+      ;; it. Else, nil is returned, so whatever is in the top of the
+      ;; kill-ring will be used.
+      (let (
+	    (xsel-output
+	     (if (equal my-platform "Linux\n")
+		 ;; Linux
+		 (shell-command-to-string "xsel --clipboard --output")
+	         ;; mac
+	         (shell-command-to-string "pbpaste")
+	       )
+	     )
+	    )
+	(unless (string= (car kill-ring) xsel-output)
+	  xsel-output )))
+    ;; Attach callbacks to hooks
+    ;; 关联钩子，使得kill-new kill-append函数执行时执行下面两个函数
+    (setq interprogram-cut-function 'xsel-cut-function)
+    (setq interprogram-paste-function 'xsel-paste-function)
+    ;; Idea from
+    ;; http://shreevatsa.wordpress.com/2006/10/22/emacs-copypaste-and-x/
+    ;; http://www.mail-archive.com/help-gnu-emacs@gnu.org/msg03577.html
+     ))
+
+
+;; 一定放在最后
 (provide 'init-custom-pkg)
-
-
