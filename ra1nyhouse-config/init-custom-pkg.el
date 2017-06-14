@@ -162,6 +162,11 @@
   :ensure t
   :bind (("M-p" . ace-window))
   )
+
+(use-package cuda-mode
+  :ensure t
+  )
+
 (provide 'init-custom-pkg)
 
 
