@@ -33,7 +33,9 @@
 (use-package counsel
   :ensure t
   :demand
-  :bind ("C-s" . swiper)
+  :bind (("C-s" . swiper)
+	 ("C-c g" . counsel-git)
+	 ("C-c j" . counsel-git-grep))
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
