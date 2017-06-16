@@ -8,25 +8,26 @@
 (load-theme 'manoj-dark t)
 
 ;; 使用helm,扩展M-x功能
-(use-package helm
-  :ensure t
-  :demand
-  :bind (("M-x" . helm-M-x)
-	 ("C-x C-f" . helm-find-files)
-	 ("C-x b" . helm-buffers-list))
-  :config
-  (require 'helm-config)
-  ;; helm-themes不是主题，只是显示当前所有安装主题
-  ;; 如有异常，删除emacs-custom.el文件
-    (use-package helm-themes
-    :ensure t
-    :config (require 'helm-themes)
-    )  
-  )
+;; (use-package helm
+;;   :ensure t
+;;   :demand
+;;   :bind (("M-x" . helm-M-x)
+;; 	 ("C-x C-f" . helm-find-files)
+;; 	 ("C-x b" . helm-buffers-list))
+;;   :config
+;;   (require 'helm-config)
+;;   ;; helm-themes不是主题，只是显示当前所有安装主题
+;;   ;; 如有异常，删除emacs-custom.el文件
+;;     (use-package helm-themes
+;;     :ensure t
+;;     :config (require 'helm-themes)
+;;     )  
+;;   )
 
 ;; ivy划分为ivy,swiper,counsel三个包，counsel依赖前两个
 ;; 测试了，功能和helm重复，速度更快，但是没有helm强大
 ;; swiper是isearch很好的替代品，推荐使用
+;; counsel 是ivy模式的增强版
 
 ;; 使用swiper替换isearch
 ;; 设置ivy-mode开启，使用C-x k 时候很方便
@@ -34,8 +35,11 @@
   :ensure t
   :demand
   :bind (("C-s" . swiper)
+	 ("M-x" . counsel-M-x)
+	 ("C-x C-f" . counsel-find-file)
 	 ("C-c g" . counsel-git)
-	 ("C-c j" . counsel-git-grep))
+	 ("C-c j" . counsel-git-grep)
+	 )
   :config
   (ivy-mode 1)
   (setq ivy-use-virtual-buffers t)
