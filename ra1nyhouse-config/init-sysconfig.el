@@ -41,4 +41,8 @@
 ;; 激活linux x11 剪切板
 (setq x-select-enable-clipboard t)
 
+;; 加强版矩形编辑 实际上的多行编辑
+(cua-selection-mode t)
+(global-set-key (kbd "C-c RET") 'cua-set-rectangle-mark)
+
 (provide 'init-sysconfig)
