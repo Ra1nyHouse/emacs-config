@@ -226,5 +226,14 @@
      ))
 
 
+(use-package smooth-scrolling
+  :ensure t
+  :config
+  (smooth-scrolling-mode 1)
+  ;; 设置间隔是1
+  (custom-set-variables '(smooth-scroll-margin 1))
+  )
+
+
 ;; 一定放在最后
 (provide 'init-custom-pkg)
