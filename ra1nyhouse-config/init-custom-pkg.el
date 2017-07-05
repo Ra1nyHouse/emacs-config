@@ -235,5 +235,8 @@
   )
 
 
+(use-package magit
+  :ensure t
+ )
 ;; 一定放在最后
 (provide 'init-custom-pkg)
