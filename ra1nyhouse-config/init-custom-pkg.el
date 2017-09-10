@@ -1,11 +1,6 @@
-;; 主题
-;; (use-package material-theme
-;;   :ensure t
-;;   :config (load-theme 'material t)
-;;   )
-
 ;; 使用默认主题 manoj-dark,对helm支持较好
-(load-theme 'manoj-dark t)
+;; 修改为wombat
+(load-theme 'wombat t)
 
 ;; 使用helm,扩展M-x功能
 ;; (use-package helm
@@ -71,9 +66,6 @@
 (use-package neotree
   :ensure t
   :bind ([f9] . neotree-toggle)
-  :config
-    (require 'neotree)
-    (setq neo-theme (if (display-graphic-p) 'icons 'arrow))
   )
 
 ;; 支持gist，需要配置
@@ -151,8 +143,6 @@
 (use-package bing-dict
   :ensure t
   :bind (("C-c d" . bing-dict-brief))
-  :config
-  (require 'bing-dict)
   )
 
 ;; undotree 不好用，从粘贴板复制大数据时因为创建树结构会卡顿
@@ -173,7 +163,7 @@
   :ensure t
   )
 
-;; 实现与系统剪切板互通，需要安装xsel软件，目前在linux下可用
+;;实现与系统剪切板互通，需要安装xsel软件，目前在linux下可用
 ;; If emacs is run in a terminal, the clipboard- functions have no
 ;; effect. Instead, we use of xsel, see
 ;; http://www.vergenet.net/~conrad/software/xsel/ -- "a command-line
@@ -237,6 +227,15 @@
 
 (use-package magit
   :ensure t
- )
+  )
+
+;; (use-package evil
+;;   :ensure t
+;;   :init
+;;  ;; (setq evil-toggle-key "C-`")
+;;   :config
+;;  ;; (evil-mode 1)
+;;  )
+
 ;; 一定放在最后
 (provide 'init-custom-pkg)
