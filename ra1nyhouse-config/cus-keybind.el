@@ -1,4 +1,3 @@
-(require 'bind-key)
 (bind-keys*
 ;; 下一个窗口
 ("<f12>" . other-window) ; 等价于C-x o

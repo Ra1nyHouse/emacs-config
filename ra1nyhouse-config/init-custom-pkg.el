@@ -51,6 +51,7 @@
 	 ("C-c C-k" . elpy-shell-kill)
 	)
   :config (elpy-enable)
+  :pin elpy
   )
 
 ;; 自动补全

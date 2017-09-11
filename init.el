@@ -1,8 +1,12 @@
 ;; 设置国内镜像
 (when (>= emacs-major-version 24)
   (require 'package)
-  (setq package-archives '(("gnu"   . "http://elpa.emacs-china.org/gnu/")
-                         ("melpa" . "http://elpa.emacs-china.org/melpa/")))
+  (setq package-archives '(
+			   ("gnu"   . "http://elpa.emacs-china.org/gnu/")
+			   ("melpa" . "http://elpa.emacs-china.org/melpa/")
+			   ("elpy" . "http://jorgenschaefer.github.io/packages/")
+			   )
+	)
   (setq package-enable-at-startup nil)
   (package-initialize)
   (when (not package-archive-contents)
@@ -16,6 +20,8 @@
 
 (eval-when-compile
   (require 'use-package))
+(require 'diminish)                ;; if you use :diminish
+(require 'bind-key)                ;; if you use any :bind variant
 
 ;; 烦人的custom-file放在别的地方，如果报错，自行创建emacs-custom文件
 (setq custom-file "~/.emacs.d/emacs-custom.el")
