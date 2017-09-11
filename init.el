@@ -28,3 +28,4 @@
 
 (require 'init-sysconfig)
 (require 'init-custom-pkg)
+(require 'cus-keybind)

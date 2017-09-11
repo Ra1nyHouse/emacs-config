@@ -53,13 +53,20 @@
   :config (elpy-enable)
   )
 
+;; 自动补全
+(use-package company
+  :ensure t
+  :config
+  (add-hook 'after-init-hook 'global-company-mode)
+  )
+
 ;; 语法检测
 (use-package flycheck
   :ensure t
-  :config
-  (when (require 'flycheck nil t)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
+  ;; :config
+  ;; (when (require 'flycheck nil t)
+  ;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
   )
 
 ;; 目录树
@@ -98,19 +105,13 @@
 ;;   :commands (gh-md-render-region gh-md-render-buffer)
 ;;   )
 
-;; 多行编辑
-(use-package multiple-cursors
-  :ensure t
-  :bind (([f1] . mc/mark-next-like-this)
-	 ("C-<" . mc/mark-previous-like-this))
-  )
+;; 多行编辑 有cua mark支持，多行编辑需求不大
+;; (use-package multiple-cursors
+;;   :ensure t
+;;   :bind (([f1] . mc/mark-next-like-this)
+;; 	 ("C-<" . mc/mark-previous-like-this))
+;;   )
 
-;; 自动补全
-(use-package company
-  :ensure t
-  :config
-  (add-hook 'after-init-hook 'global-company-mode)
-  )
 
 ;; snippet代码片段
 (use-package yasnippet
