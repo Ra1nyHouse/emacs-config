@@ -10,6 +10,12 @@
 ;; 放大窗口横向
 ("<f6>" . enlarge-window-horizontally)
 
+("M-p" . backward-paragraph)
+("M-n" . forward-paragraph)
+
+
+
+
 )
 
 (provide 'cus-keybind)

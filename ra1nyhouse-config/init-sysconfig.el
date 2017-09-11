@@ -46,4 +46,7 @@
 (global-set-key (kbd "C-c RET") 'cua-set-rectangle-mark)
 (global-set-key (kbd "C-2") 'cua-set-mark)
 
+;; 设置滚动不使光标在屏幕中心点
+(setq scroll-conservatively 15)
+
 (provide 'init-sysconfig)

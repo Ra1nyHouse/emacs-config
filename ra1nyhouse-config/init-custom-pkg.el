@@ -218,13 +218,13 @@
      ))
 
 
-(use-package smooth-scrolling
-  :ensure t
-  :config
-  (smooth-scrolling-mode 1)
-  ;; 设置间隔是1
-  (custom-set-variables '(smooth-scroll-margin 1))
-  )
+;; (use-package smooth-scrolling
+;;   :ensure t
+;;   :config
+;;   (smooth-scrolling-mode 1)
+;;   ;; 设置间隔是1
+;;   (custom-set-variables '(smooth-scroll-margin 1))
+;;   )
 
 
 (use-package magit
