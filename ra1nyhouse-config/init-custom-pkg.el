@@ -1,6 +1,11 @@
 ;; 使用默认主题 manoj-dark,对helm支持较好
 ;; 修改为wombat
-(load-theme 'wombat t)
+;; (load-theme 'wombat t)
+
+;; 修改主题和状态栏，文件在ra1nyhouse-download里
+;; (setq molokai-theme-kit t)
+(load-theme 'molokai t)
+;; (require 'house-new-mode-line)
 
 ;; 使用helm,扩展M-x功能
 ;; (use-package helm
@@ -238,6 +243,7 @@
 ;;   :config
 ;;  ;; (evil-mode 1)
 ;;  )
+
 
 ;; 一定放在最后
 (provide 'init-custom-pkg)

@@ -19,7 +19,7 @@
 (add-hook 'html-mode-hook 'linum-mode)
 (add-hook 'nxml-mode-hook 'linum-mode)
 (add-hook 'python-mode-hook 'linum-mode)
-(setq linum-format "%4d|")
+(setq linum-format "%4d ")
 
 ;; 切换到上一个buffer
 ;; (global-set-key (kbd "<f11>") 'previous-buffer)
@@ -48,5 +48,7 @@
 
 ;; 设置滚动不使光标在屏幕中心点
 (setq scroll-conservatively 15)
+
+(global-hl-line-mode 1)
 
 (provide 'init-sysconfig)

@@ -31,6 +31,8 @@
 
 ;; 自定义配置写在ra1nyhouse-config目录中，用require引入
 (add-to-list 'load-path (expand-file-name "ra1nyhouse-config" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "ra1nyhouse-elfiles" user-emacs-directory))
+(add-to-list 'custom-theme-load-path (expand-file-name "ra1nyhouse-elfiles" user-emacs-directory))
 
 (require 'init-sysconfig)
 (require 'init-custom-pkg)
