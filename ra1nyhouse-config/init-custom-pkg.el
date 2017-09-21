@@ -1,10 +1,22 @@
 ;; 修改为wombat
-0;95;0c;; (load-theme 'wombat t)
+;; (load-theme 'wombat t)
 
 ;; 修改主题和状态栏，文件在ra1nyhouse-download里
 ;; (setq molokai-theme-kit t)
 ;; (load-theme 'molokai t)
 ;; (require 'house-new-mode-line)
+
+;; (use-package zenburn-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'zenburn t)
+;;   )
+
+;; (use-package material-theme
+;;   :ensure t
+;;   :config
+;;   (load-theme 'material t)
+;;   )
 
 (use-package monokai-theme
   :ensure t
@@ -18,7 +30,7 @@
 ;; 使用helm,扩展M-x功能
 (use-package helm
   :ensure t
-  :demand
+  ;; :demand
   :bind (
 	 ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
@@ -30,11 +42,12 @@
 
 (use-package helm-swoop
   :ensure t
-  :demand
+  ;; :demand
   :bind (
 	 ("C-s" . helm-swoop)
 	 )
   )
+
 ;; helm-themes不是主题，只是显示当前所有安装主题
 ;; 如有异常，删除emacs-custom.el文件
 ;; (use-package helm-themes
