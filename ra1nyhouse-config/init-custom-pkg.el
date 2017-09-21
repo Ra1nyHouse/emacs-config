@@ -97,13 +97,13 @@
   (add-hook 'after-init-hook 'global-company-mode)
   )
 
-;; 语法检测
+;; 语法检测,比 elpy 的 flymake 好用很多，能自动提示函数参数
 (use-package flycheck
   :ensure t
-  ;; :config
-  ;; (when (require 'flycheck nil t)
-  ;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-  ;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
+  :config
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
   )
 
 ;; 目录树
