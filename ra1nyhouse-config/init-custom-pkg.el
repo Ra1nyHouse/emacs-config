@@ -80,6 +80,16 @@
   :pin elpy
   )
 
+;; snippet代码片段,被 elpy 依赖
+(use-package yasnippet
+  :ensure t
+  :config
+  (require 'yasnippet)
+  (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
+  (yas-global-mode 1)
+ )
+
+
 ;; 自动补全
 (use-package company
   :ensure t
@@ -138,16 +148,6 @@
 ;;   :bind (([f1] . mc/mark-next-like-this)
 ;; 	 ("C-<" . mc/mark-previous-like-this))
 ;;   )
-
-
-;; snippet代码片段
-;; (use-package yasnippet
-;;   :ensure t
-;;   :config
-;;   (require 'yasnippet)
-;;   (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
-;;   (yas-global-mode 1)
-;;  )
 
 ;; 将烦人的弹出提示框设置成popwin，使用C-g关闭
 (use-package popwin
