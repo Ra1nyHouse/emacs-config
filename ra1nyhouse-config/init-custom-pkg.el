@@ -1,28 +1,49 @@
-;; 使用默认主题 manoj-dark,对helm支持较好
 ;; 修改为wombat
-;; (load-theme 'wombat t)
+0;95;0c;; (load-theme 'wombat t)
 
 ;; 修改主题和状态栏，文件在ra1nyhouse-download里
 ;; (setq molokai-theme-kit t)
-(load-theme 'molokai t)
+;; (load-theme 'molokai t)
 ;; (require 'house-new-mode-line)
 
+(use-package monokai-theme
+  :ensure t
+  :config
+  (load-theme 'monokai t)
+  (custom-set-faces
+    '(linum ((t (:inherit default :background "#232526" :foreground "#8F908A" :underline nil))))
+   '(mode-line ((t (:inherit default :background "#404045" :foreground "#F5F5F5" :box (:line-width 1 :color "#474747" :style unspecified))))))
+   )
+
 ;; 使用helm,扩展M-x功能
-;; (use-package helm
-;;   :ensure t
-;;   :demand
-;;   :bind (("M-x" . helm-M-x)
-;; 	 ("C-x C-f" . helm-find-files)
-;; 	 ("C-x b" . helm-buffers-list))
-;;   :config
-;;   (require 'helm-config)
-;;   ;; helm-themes不是主题，只是显示当前所有安装主题
-;;   ;; 如有异常，删除emacs-custom.el文件
-;;     (use-package helm-themes
+(use-package helm
+  :ensure t
+  :demand
+  :bind (
+	 ("M-x" . helm-M-x)
+	 ("C-x C-f" . helm-find-files)
+	 ("C-x b" . helm-buffers-list)
+	 )
+  :config
+  (require 'helm-config)    
+  )
+
+(use-package helm-swoop
+  :ensure t
+  :demand
+  :bind (
+	 ("C-s" . helm-swoop)
+	 )
+  )
+;; helm-themes不是主题，只是显示当前所有安装主题
+;; 如有异常，删除emacs-custom.el文件
+;; (use-package helm-themes
 ;;     :ensure t
-;;     :config (require 'helm-themes)
-;;     )  
-;;   )
+;;     )
+
+;; (use-package helm-ag
+;;   :ensure t  
+;;  )
 
 ;; ivy划分为ivy,swiper,counsel三个包，counsel依赖前两个
 ;; 测试了，功能和helm重复，速度更快，但是没有helm强大
@@ -31,20 +52,20 @@
 
 ;; 使用swiper替换isearch
 ;; 设置ivy-mode开启，使用C-x k 时候很方便
-(use-package counsel
-  :ensure t
-  :demand
-  :bind (("C-s" . swiper)
-	 ("M-x" . counsel-M-x)
-	 ("C-x C-f" . counsel-find-file)
-	 ("C-c g" . counsel-git)
-	 ("C-c j" . counsel-git-grep)
-	 )
-  :config
-  (ivy-mode 1)
-  (setq ivy-use-virtual-buffers t)
-  (setq enable-recursive-minibuffers t)
-  )
+;; (use-package counsel
+;;   :ensure t
+;;   :demand
+;;   :bind (("C-s" . swiper)
+;; 	 ("M-x" . counsel-M-x)
+;; 	 ("C-x C-f" . counsel-find-file)
+;; 	 ("C-c g" . counsel-git)
+;; 	 ("C-c j" . counsel-git-grep)
+;; 	 )
+;;   :config
+;;   (ivy-mode 1)
+;;   (setq ivy-use-virtual-buffers t)
+;;   (setq enable-recursive-minibuffers t)
+;;   )
 
 
 ;; python模式
@@ -120,13 +141,13 @@
 
 
 ;; snippet代码片段
-(use-package yasnippet
-  :ensure t
-  :config
-  (require 'yasnippet)
-  (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
-  (yas-global-mode 1)
- )
+;; (use-package yasnippet
+;;   :ensure t
+;;   :config
+;;   (require 'yasnippet)
+;;   (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
+;;   (yas-global-mode 1)
+;;  )
 
 ;; 将烦人的弹出提示框设置成popwin，使用C-g关闭
 (use-package popwin
@@ -232,9 +253,9 @@
 ;;   )
 
 
-(use-package magit
-  :ensure t
-  )
+;; (use-package magit
+;;   :ensure t
+;;   )
 
 ;; (use-package evil
 ;;   :ensure t

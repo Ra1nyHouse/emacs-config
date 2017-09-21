@@ -14,8 +14,6 @@
 ("M-n" . forward-paragraph)
 
 
-
-
 )
 
 (provide 'cus-keybind)
