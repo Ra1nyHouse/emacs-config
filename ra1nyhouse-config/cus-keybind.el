@@ -13,6 +13,8 @@
 ("M-p" . backward-paragraph)
 ("M-n" . forward-paragraph)
 
+;; 关闭回车自动缩进
+("<f11>" . electric-indent-local-mode)
 
 )
 

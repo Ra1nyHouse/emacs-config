@@ -53,4 +53,5 @@
 (global-hl-line-mode 1)
 
 (menu-bar-mode 0)
+
 (provide 'init-sysconfig)

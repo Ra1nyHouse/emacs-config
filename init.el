@@ -2,8 +2,10 @@
 (when (>= emacs-major-version 24)
   (require 'package)
   (setq package-archives '(
-			   ("gnu"   . "http://elpa.emacs-china.org/gnu/")
-			   ("melpa" . "http://elpa.emacs-china.org/melpa/")
+			   ;; ("gnu"   . "http://elpa.emacs-china.org/gnu/")
+			   ;; ("melpa" . "http://elpa.emacs-china.org/melpa/")
+			   ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
 			   ("elpy" . "http://jorgenschaefer.github.io/packages/")
 			   )
 	)
