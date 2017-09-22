@@ -35,9 +35,13 @@
 	 ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
 	 ("C-x b" . helm-buffers-list)
+	 ;; :map helm-buffer-map
+	 ;; ("C-k" . helm-buffer-run-kill-buffers)
 	 )
   :config
-  (require 'helm-config)    
+  (require 'helm-config)
+  (require 'helm-buffers)
+  (bind-keys :map helm-buffer-map ("C-k" . helm-buffer-run-kill-buffers))
   )
 
 (use-package helm-swoop
