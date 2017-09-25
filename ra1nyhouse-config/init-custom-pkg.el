@@ -30,7 +30,7 @@
 ;; 使用helm,扩展M-x功能
 (use-package helm
   :ensure t
-  ;; :demand
+  :demand
   :bind (
 	 ("M-x" . helm-M-x)
 	 ("C-x C-f" . helm-find-files)
@@ -284,8 +284,43 @@
 
 (use-package tabbar
   :ensure t
+  :demand
+  ;;:bind
+  ;;(
+   ;; ("C-t" . tabbar-forward-tab)
+   ;;("C-S-tab" . tabbar-backward-tab)
+   ;;)
   :config
   (tabbar-mode 1)
+      (set-face-attribute
+     'tabbar-default nil
+     :family "Ricty Diminished"
+     :background "black"
+     :foreground "gray32"
+     :height 0.8)
+    (set-face-attribute
+     'tabbar-unselected nil
+     :background "black"
+     :foreground "grey80"
+     :box nil)
+    (set-face-attribute
+     'tabbar-modified nil
+     :background "#eeee00"
+     :foreground "#000000"
+     :box nil)
+    (set-face-attribute
+     'tabbar-selected nil
+     :background "#90f050"
+     :foreground "gray10"
+     :bold 0
+     :height 1.2
+     :box nil)
+    (set-face-attribute
+     'tabbar-button nil
+     :box nil)
+    (set-face-attribute
+     'tabbar-separator nil
+     :height 0.9)
   )
 
 
