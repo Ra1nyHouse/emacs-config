@@ -40,6 +40,7 @@
 	 )
   :config
   (require 'helm-config)
+  (require 'helm-mode) ;; 不引入的话直接执行c-x c-f会报错
   (require 'helm-buffers)
   (bind-keys :map helm-buffer-map ("C-k" . helm-buffer-run-kill-buffers))
   )
