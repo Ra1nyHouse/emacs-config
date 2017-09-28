@@ -54,4 +54,11 @@
 
 (menu-bar-mode 0)
 
+;; 保存上次退出时buffer状态
+;; (desktop-save-mode 1)
+
+(windmove-default-keybindings)
+(winner-mode t)
+
+
 (provide 'init-sysconfig)
