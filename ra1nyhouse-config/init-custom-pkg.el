@@ -107,7 +107,9 @@
 	 :map elpy-mode-map
 	 ("C-c C-k" . elpy-shell-kill)
 	)
-  :config (elpy-enable)
+  :config
+  (elpy-enable)
+  (custom-set-variables '(elpy-rpc-backend "jedi"))
   :pin elpy
   )
 
@@ -213,9 +215,14 @@
 ;;   (global-undo-tree-mode)
 ;;   )
 
-(use-package ace-window
+;; (use-package ace-window
+;;   :ensure t
+;;   :bind (("M-p" . ace-window))
+;;   )
+
+(use-package ace-jump-mode
   :ensure t
-  :bind (("M-p" . ace-window))
+  :bind(("C-c SPC" . ace-jump-mode))
   )
 
 (use-package cuda-mode
