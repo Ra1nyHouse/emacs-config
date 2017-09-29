@@ -1,3 +1,4 @@
+;; (setq gc-cons-threshold 20000000) ;; 提升启动速度  
 ;; 设置国内镜像
 (when (>= emacs-major-version 24)
   (require 'package)
