@@ -1,4 +1,6 @@
-;; (setq gc-cons-threshold 20000000) ;; 提升启动速度  
+(setq ts-init (current-time)) ;; 统计启动时间
+
+(setq gc-cons-threshold 20000000) ;; 提升启动速度  
 ;; 设置国内镜像
 (when (>= emacs-major-version 24)
   (require 'package)
@@ -42,3 +44,5 @@
 ;; 最后导入自定义配置文件
 (if (file-exists-p custom-file)
   (load custom-file))
+
+(message " Finished startup in %.2f s" (float-time (time-since ts-init))) ;; 启动时间

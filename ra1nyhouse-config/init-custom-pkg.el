@@ -63,7 +63,6 @@
 	 ("C-c p" . helm-projectile)
 	 )
   :config
-  (require 'helm-projectile)
   (helm-projectile-on)
   )
 ;; helm-themes不是主题，只是显示当前所有安装主题
@@ -99,19 +98,50 @@
 ;;   )
 
 
+;; 语法检测,比 elpy 的 flymake 好用很多，能自动提示函数参数
+;; (use-package flycheck
+;;   :ensure t
+;;   :config
+;;   (when (require 'flycheck nil t)
+;;     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+;;     (add-hook 'elpy-mode-hook 'flycheck-mode))
+;;   )
+
 ;; python模式
+;; (use-package elpy
+;;   :ensure t
+;;   ;; :demand
+;;   :bind (
+;; 	 :map elpy-mode-map
+;; 	 ("C-c C-k" . elpy-shell-kill)
+;; 	)
+;;   :config
+;;   (elpy-enable)
+;;   (custom-set-variables '(elpy-rpc-backend "jedi"))
+;;   :pin elpy
+;;   )
+
+;; *****************改进
+
+;; 要放在 elpy 之前
+(use-package flycheck
+  :ensure t
+  :config
+  )
+
 (use-package elpy
   :ensure t
   :demand
-  :bind (
-	 :map elpy-mode-map
-	 ("C-c C-k" . elpy-shell-kill)
-	)
   :config
   (elpy-enable)
+  (bind-key "C-c C-k" 'elpy-shell-kill elpy-mode-map)
+  (when (require 'flycheck nil t)
+    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+    (add-hook 'elpy-mode-hook 'flycheck-mode))
   (custom-set-variables '(elpy-rpc-backend "jedi"))
   :pin elpy
-  )
+)
+
 
 ;; snippet代码片段,被 elpy 依赖
 (use-package yasnippet
@@ -119,7 +149,7 @@
   :config
   (require 'yasnippet)
   (add-to-list 'yas-snippet-dirs "~/.emacs.d/ra1nyhouse-snippets")
-  (yas-global-mode 1)
+  ;; (yas-global-mode 1)
  )
 
 
@@ -130,14 +160,6 @@
   (add-hook 'after-init-hook 'global-company-mode)
   )
 
-;; 语法检测,比 elpy 的 flymake 好用很多，能自动提示函数参数
-(use-package flycheck
-  :ensure t
-  :config
-  (when (require 'flycheck nil t)
-    (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-    (add-hook 'elpy-mode-hook 'flycheck-mode))
-  )
 
 ;; 目录树
 (use-package neotree
@@ -148,10 +170,11 @@
 ;; 支持gist，需要配置
 ;; git config --global github.user <your-github-user-name> eg:ra1nyhouse
 ;; git config --global github.oauth-token <your-personal-access-token-with-gist-scope>
-(use-package gist
-  :ensure t
-  :config (require 'gist)
-  )
+
+;; (use-package gist
+;;   :ensure t
+;;   :config (require 'gist)
+;;   )
 
 ;; 彩虹括号
 (use-package rainbow-delimiters
@@ -186,25 +209,19 @@
 (use-package popwin
   :ensure t
   :config
-  (require 'popwin)
   (popwin-mode 1)
   (push "*Warnings*" popwin:special-display-config)
   (push "*Flycheck error messages*" popwin:special-display-config)
  )
 
 ;; 自定义模式栏显示内容
-(use-package diminish
-  :ensure t
-  :config
-  (require 'diminish)
-  (diminish 'ivy-mode)
-  )
+;; (use-package diminish
+;;   :ensure t
+;;   :config
+;;   (require 'diminish)
+;;   (diminish 'ivy-mode)
+;;   )
 
-;; 必应字典支持
-(use-package bing-dict
-  :ensure t
-  :bind (("C-c d" . bing-dict-brief))
-  )
 
 ;; undotree 不好用，从粘贴板复制大数据时因为创建树结构会卡顿
 ;; (use-package undo-tree
@@ -213,11 +230,6 @@
 ;;   :config
 ;;   (require 'undo-tree)
 ;;   (global-undo-tree-mode)
-;;   )
-
-;; (use-package ace-window
-;;   :ensure t
-;;   :bind (("M-p" . ace-window))
 ;;   )
 
 (use-package ace-jump-mode
@@ -282,26 +294,9 @@
      ))
 
 
-;; (use-package smooth-scrolling
-;;   :ensure t
-;;   :config
-;;   (smooth-scrolling-mode 1)
-;;   ;; 设置间隔是1
-;;   (custom-set-variables '(smooth-scroll-margin 1))
-;;   )
-
-
 ;; (use-package magit
 ;;   :ensure t
 ;;   )
-
-;; (use-package evil
-;;   :ensure t
-;;   :init
-;;  ;; (setq evil-toggle-key "C-`")
-;;   :config
-;;  ;; (evil-mode 1)
-;;  )
 
 (use-package tabbar
   :ensure t
@@ -350,6 +345,7 @@
   :config
   (require 'smartparens-config)
   (add-hook 'python-mode-hook #'smartparens-mode)
+  (add-hook 'lisp-mode-hook #'smartparens-mode)
   )
 
 (use-package winum
