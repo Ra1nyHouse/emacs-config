@@ -139,7 +139,6 @@
     (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
     (add-hook 'elpy-mode-hook 'flycheck-mode))
   (custom-set-variables '(elpy-rpc-backend "jedi"))
-  :pin elpy
 )
 
 

@@ -9,7 +9,7 @@
 			   ;; ("melpa" . "http://elpa.emacs-china.org/melpa/")
 			   ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
 			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-			   ("elpy" . "http://jorgenschaefer.github.io/packages/")
+;;			   ("elpy" . "http://jorgenschaefer.github.io/packages/")
 			   )
 	)
   (setq package-enable-at-startup nil)
