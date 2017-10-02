@@ -7,9 +7,10 @@
   (setq package-archives '(
 			   ;; ("gnu"   . "http://elpa.emacs-china.org/gnu/")
 			   ;; ("melpa" . "http://elpa.emacs-china.org/melpa/")
-			   ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
-			   ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
-;;			   ("elpy" . "http://jorgenschaefer.github.io/packages/")
+			   ;; ("gnu"   . "http://mirrors.tuna.tsinghua.edu.cn/elpa/gnu/")
+			   ;; ("melpa" . "http://mirrors.tuna.tsinghua.edu.cn/elpa/melpa/")
+			   ("gnu" . "http://mirrors.163.com/elpa/gnu/")
+			   ("melpa" . "http://mirrors.163.com/elpa/melpa/")
 			   )
 	)
   (setq package-enable-at-startup nil)

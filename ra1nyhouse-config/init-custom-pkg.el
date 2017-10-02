@@ -27,6 +27,14 @@
    '(mode-line ((t (:inherit default :background "#404045" :foreground "#F5F5F5" :box (:line-width 1 :color "#474747" :style unspecified))))))
    )
 
+;; 棕红色背景，在图形界面表现好，在命令行表现一般
+;; (use-package birds-of-paradise-plus-theme
+;;   :ensure t
+;;   :config
+;;   (require 'birds-of-paradise-plus-theme)
+;;   ;;(load-theme 'birds-of-paradise-plus t)
+;;   )
+
 ;; 使用helm,扩展M-x功能
 (use-package helm
   :ensure t
