@@ -67,11 +67,13 @@
 
 (use-package helm-projectile
   :ensure t
+  ;; :demand
   :bind (
-	 ("C-c p" . helm-projectile)
-	 )
+  	 ("C-c p" . helm-projectile)
+  	 )
   :config
   (helm-projectile-on)
+  ;; (bind-key "C-c p" 'helm-projectile)
   )
 ;; helm-themes不是主题，只是显示当前所有安装主题
 ;; 如有异常，删除emacs-custom.el文件
