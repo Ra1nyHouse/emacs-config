@@ -379,5 +379,11 @@
   (winum-mode)
   )
 
+(use-package goto-chg
+  :ensure t
+  :bind
+  (("C-c /" . goto-last-change))
+  )
+
 ;; 一定放在最后
 (provide 'init-custom-pkg)
